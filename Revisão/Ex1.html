@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,10 +9,56 @@
     <h1>Revisão - Atividade Signos</h1> teste
     digite o mês do seu signo (1 a 12): <input type="number" id="signo" min="1" max="12">
     <button onclick="mostrarsignos()">Ver signo</button>
+
     <h1 id="resultado"></h1>
 
     <script>
-        
+        function mostrarsignos() {
+            let sig = parseInt(document.getElementById("signo").value);
+            let resultado = "" ; 
+
+            switch(sig) {
+                case 1:
+                    resultado = "Capricornio ou Aquario";
+                    break;
+                case 2:
+                    resultado = "Aquario ou Peixes";
+                    break;
+                case 3:
+                    resultado = "Peixes ou Aries";
+                    break;
+                case 4:
+                    resultado = "Aries ou Touro";
+                    break;
+                case 5:
+                    resultado = "Touro ou Gemeos";
+                    break;
+                case 6:
+                    resultado = "Gemeos ou Cancer";
+                    break;
+                case 7:
+                    resultado = "Cancer ou Leão";
+                    break;
+                case 8:
+                    resultado = "Leão ou Virgem";
+                    break;
+                case 9:
+                    resultado = "Virgem ou Libra";
+                    break;
+                case 10:
+                    resultado = "Libra ou Escopião ";
+                    break;
+                case 11:
+                    resultado = "Escorpião ou Sargitario";
+                    break;
+                case 12:
+                    resultado = "Sargitario ou Capricornio";
+                    break;
+                default:
+                    resultado = "mês invalido"
+            }
+            document.getElementById('resultado').innerHTML = `O seu mês selecionado é ${sig} e o signo é ${resultado}`
+        }
     </script>
 </body>
 </html>

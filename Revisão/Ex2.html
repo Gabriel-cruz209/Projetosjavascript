@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revisão 2</title>
+</head>
+<body>
+    <h1>Dispositivos antigo</h1>
+    <h2>Dispositivos: Fita Cassete,DVD e CD </h2><input type="texte" id="antigo">
+    <button onclick="mostrarantigo()">Ver Informações</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function mostrarantigo () {
+            let ant = document.getElementById("antigo").value.toLowerCase();
+            let resul;
+
+            switch(ant){
+                case "fita cassete":
+                    resul = "A fita cassete, também conhecida como K7 ou compact cassette, é um formato de fita magnética para gravação e reprodução de áudio. "
+                    break;
+                case "dvd":
+                    resul = "DVD é a sigla para Digital Versatile Disc ou Digital Video Disc, que é uma mídia para armazenamento de dados e para distribuição de filmes, jogos e outros tipos de conteúdo."
+                    break;
+                case "cd":
+                    resul = "CD pode referir-se a várias coisas, dependendo do contexto. Em geral, significa Compact Disc(disco compacto), um disco óptico digital para armazenamento de dados."
+                    break;
+                default:
+                    result = "Dispositivo Invalido"
+            }
+            document.getElementById('resultado').innerHTML = `O dispositivo selecionado é <strong>${ant}</strong> e as informações desse dispositivo são: <br>${resul}`
+        }
+    </script>
+
+</body>
+</html>
