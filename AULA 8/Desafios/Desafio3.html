@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja Brinquedos</title>
+</head>
+<body>
+    <h1>Loja Brinquedos</h1>
+    <button onclick="produto1()">Salada</button>
+    <label for="produto1">codigo 1</label>
+    <button onclick="produto2()">laranja</button>
+    <button onclick="produto3()">maça</button>
+    <button onclick="produto4()">pera</button>
+    <button onclick="produto5()">algodao</button>
+    <button onclick="produto6()">morango</button>
+    <button onclick="produto7()">batata</button>
+    <button onclick="produto8()">abobora</button>
+    <button onclick="produto9()">mandioca</button> 
+    <button onclick="produto10()">arroz</button>
+    <label for="produto1">codigo 10</label>
+    <p id="valoo"></p>
+
+
+    <script>
+        
+function produto1 () {
+    let preço = 10
+let porc = 10
+let valor =( preço*porc)/ 100
+let total = preço - valor
+let res = document.getElementById('valoo')
+res.innerHTML =  `<p> O produto custa r$${preço.toFixed(2)}</p>`
+res.innerHTML +=  `<p> Um desconto de r$${porc}% sobre ele sera de R${valor.toFixed(2)}</p>`
+res.innerHTML +=  `<p> O valor final a ser pago sera de r$${total.toFixed(2)}</p>`
+}
+function produto2()  {
+    let res1 = document.getElementById('valoo')
+            let ex1 = 8
+            res1.innerHTML +=  `<p> O valor final a ser pago sera de R$${ex1} reais</p>`
+}
+function produto3()  {
+    let res1 = document.getElementById('valoo')
+            let ex1 = 4
+            res1.innerHTML +=  `<p> O valor final a ser pago sera de R$${ex1} reais</p>`
+}
+function produto4()  {
+    let res1 = document.getElementById('valoo')
+            let ex1 = 5
+            res1.innerHTML +=  `<p> O valor final a ser pago sera de R$${ex1} reais</p>`
+}
+function produto5()  {
+    let res1 = document.getElementById('valoo')
+            let ex1 = 6
+            res1.innerHTML +=  `<p> O valor final a ser pago sera de R$${ex1} reais</p>`
+}
+function produto6()  {
+    let res1 = document.getElementById('valoo')
+            let ex1 = 8
+            res1.innerHTML +=  `<p> O valor final a ser pago sera de R$${ex1} reais</p>`
+}
+function produto7()  {
+    let res1 = document.getElementById('valoo')
+            let ex1 = 9
+            res1.innerHTML +=  `<p> O valor final a ser pago sera de R$${ex1} reais</p>`
+}
+function produto8()  {
+    let res1 = document.getElementById('valoo')
+            let ex1 = 20
+            res1.innerHTML +=  `<p> O valor final a ser pago sera de R$${ex1} reais</p>`
+}
+function produto9()  {
+    let res1 = document.getElementById('valoo')
+            let ex1 = 25
+            res1.innerHTML +=  `<p> O valor final a ser pago sera de R$${ex1} reais</p>`
+}
+function produto10()  {
+    let preço = 60
+let porc = 10
+let valor =( preço*porc)/ 100
+let total = preço - valor
+let res = document.getElementById('valoo')
+res.innerHTML =  `<p> O produto custa r$${preço.toFixed(2)}</p>`
+res.innerHTML +=  `<p> Um desconto de r$${porc}% sobre ele sera de R${valor.toFixed(2)}</p>`
+res.innerHTML +=  `<p> O valor final a ser pago sera de r$${total.toFixed(2)}</p>`
+}
+    </script>
+</body>
+</html>

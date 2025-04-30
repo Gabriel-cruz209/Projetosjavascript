@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 5</title>
+</head>
+<body>
+    <h1>Encomendas de produto</h1>
+   
+    <section id="situaçao">
+        <p>Encomendas de produto</p>
+    </section>
+
+    <script>
+let nome = window.prompt(`Qual é o nome do Cliente`)
+let n1 =Number(window.prompt(`CPF do cliente ${nome}?`))
+let n2 = Number(window.prompt(` RG do cliente ${nome}?`))
+let trabalho = window.prompt(`Produto desejado do cliente ${nome}?`)
+
+
+
+let res = document.getElementById(`situaçao`)
+res.innerHTML = `<p> Nome: ${nome}.</p>`
+res.innerHTML += `<p> CPF: ${n1}.</p>`
+res.innerHTML += `<p> RG:  ${n2}.</p>`
+res.innerHTML += `<p> Produto reservado ${trabalho}.</p>`
+
+
+    </script>
+</body>
+</html>

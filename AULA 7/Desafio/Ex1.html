@@ -1,0 +1,47 @@
+
+<!DOCTYPE html> 
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 7</title>
+
+    <style>
+        body {
+            background-color: rgb(226, 43, 43);
+            color: rgb(253, 233, 8);
+        }
+            
+    </style>
+</head>
+<body>
+    <input type="text" id="vetorMedia" placeholder="Digite o numero separado por virgula">
+    <div class="botao">
+    <button onclick="calcularMedia()">Calcular Media</button>
+</div>
+    <p id="resultadoMedia"></p>
+
+    <script>
+        function calcularMedia(){
+            const vetor = document.getElementById("vetorMedia").value.split(",").map(Number);
+            let Media = 0;
+            for (let i = 0; i < vetor.length; i++) {
+                Media += vetor[i] / 2
+            }
+            document.getElementById("resultadoMedia").innerHTML = "Media : " + Media;
+        }
+    </script>
+</body>
+</html>
+</body>
+</html>
+
+calcular media vetor

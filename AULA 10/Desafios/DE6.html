@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Loja de roupas</h1>
+    <h3>Roupas: Calça, camisa e vestido</h3><br>
+    <input type="text" id="roupa"><br>
+    <h3>Digite a quantidades que deseja do item</h3><br>
+    <input type="number" id="nume">
+    <button onclick="consultar()">Consultar</button>
+    <div id="resultado"></div>
+    
+    <script>
+        function consultar () {
+            let roupa = document.getElementById('roupa').value.toLowerCase();
+            let num = parseInt(document.getElementById('nume').value);
+            let total;
+            switch(roupa){
+                case "calça":
+                    total = num * 120
+                    if ( total < 100) {
+                        alert("Voce não recebeu desconto")
+                    } else if (total = (num*120)*0.9 ){
+                        alert("Recebeu desconto")
+                    } else {
+                        alert ("Invalido")
+                    }
+                    break;
+                case "camisa":
+                total = num * 60
+                    if ( total < 100) {
+                        alert("Voce não recebeu desconto")
+                    } else if (total = (num*60)*0.9 ){
+                        alert("Recebeu desconto")
+                    } else {
+                        alert ("Invalido")
+                    }
+                    break;
+                case "vestido":
+                total = num * 100
+                    if ( total < 100) {
+                        alert("Voce não recebeu desconto")
+                    } else if (total = (num*100)*0.9 ){
+                        alert("Recebeu desconto")
+                    } else {
+                        alert ("Invalido")
+                    }
+                    break;
+                default:
+                    total = "Invalido"
+            }
+            document.getElementById('resultado').innerHTML =  `O produto é ${roupa} com desconto e somando todos os itens é R$${total}`
+        }
+    </script>
+</body>
+</html>

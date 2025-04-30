@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 7</title>
+</head>
+<body>
+    <input type="text" id="vetorMaior" placeholder="Digite o numero separado por virgula">
+    <button onclick="encontrarMaiorValor()">Maior e </button>
+    <p id="resultadoMaior"></p>
+
+    <script>
+        function encontrarMaiorValor() {
+            const vetor = document.getElementById("vetorMaior").value.split(",").map(Number);
+            let maior = vetor[0];
+            for (let i = 1; i < vetor.length; i++) {
+                if (vetor[i] > maior) {
+                    maior = vetor[i];
+                }
+               
+            }
+            document.getElementById("resultadoMaior").innerHTML = "Maior: " + maior;
+        }
+    </script>
+</body>
+</html>

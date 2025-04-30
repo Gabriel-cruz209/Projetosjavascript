@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Mecânica do Zé</h1>
+    <h2>Serviços que podem ser solicitados</h2>
+    <label for="Oleo">R$ 50,00</label><button onclick="Oleo()">troca de oleo</button><br>
+    <label for="Peça">R$ 150,00<button onclick="Peça()">troca de peça</button><br>
+        <label for="Vidro">R$ 100,00<button onclick="Vidro()">troca de vidro</button>
+    <p id="msg"></p>
+
+    <script>
+       function Oleo(){ 
+        nome = window.prompt(`Qual é o seu nome`)
+        let n1 = 50
+
+let res = document.getElementById(`msg`)
+res.innerHTML = `<p> O serviço realizado foi o de troca de oleo.</p>`
+res.innerHTML += `<p> O preço do serviço foi <mark>${n1} reais</mark>.</p>`
+res.innerHTML += `<p> O cliente que recebeu o serviço foi o <mark>${nome}</mark>.</p>`
+}
+function Peça(){ 
+        nome = window.prompt(`Qual é o seu nome`)
+        let n1 = 150
+
+let res = document.getElementById(`msg`)
+res.innerHTML = `<p> O serviço realizado foi o de troca de peça.</p>`
+res.innerHTML += `<p> O preço do serviço foi <mark>${n1} reais</mark>.</p>`
+res.innerHTML += `<p> O cliente que recebeu o serviço foi o <mark>${nome}</mark>.</p>`
+}
+function Vidro(){ 
+        nome = window.prompt(`Qual é o seu nome`)
+        let n1 = 100
+
+let res = document.getElementById(`msg`)
+res.innerHTML = `<p> O serviço realizado foi o de troca de vidro.</p>`
+res.innerHTML += `<p> O preço do serviço foi <mark>${n1} reais</mark>.</p>`
+res.innerHTML += `<p> O cliente que recebeu o serviço foi o <mark>${nome}</mark>.</p>`
+}
+    </script>
+</body>
+</html>

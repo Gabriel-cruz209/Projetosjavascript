@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 3</title>
+</head>
+<body>
+    <h1>Calcular Notas</h1>
+   
+    <section id="situaçao">
+        <p>Resultado das medias dos alunos</p>
+    </section>
+
+    <script>
+let nome = window.prompt(`Qual é o nome do aluno`)
+let n1 =Number(window.prompt(`Qual foi a primeira nota de ${nome}?`))
+let n2 = Number(window.prompt(` Qual foi a Segunda nota de ${nome}?`))
+let n3 = Number(window.prompt(` Qual foi a Terceira nota de ${nome}?`))
+let trabalho = Number(window.prompt(`Qual foi a nota do trabalho de ${nome}?`))
+med = (n1 + n1 + n3 + trabalho)/4
+
+let msg 
+if(med>= 6) { 
+    msg = 'Aprovado'
+}
+else { 
+    msg = 'Reprovado'
+}
+
+let res = document.getElementById(`situaçao`)
+res.innerHTML = `<p> Calculando a media final de ${nome}.</p>`
+res.innerHTML += `<p> A Primeira nota foi: ${n1}.</p>`
+res.innerHTML += `<p> A Segunda nota foi: ${n2}.</p>`
+res.innerHTML += `<p> A Terceira nota foi: ${n3}.</p>`
+res.innerHTML += `<p> A nota do trabalho foi: ${trabalho}.</p>`
+res.innerHTML += `<p> A media final sera <mark>${med}</mark>.</p>`
+res.innerHTML += `<p> O aluno foi: <strong style='color:Blue;'>${msg}</strong>.</p>`
+
+    </script>
+</body>
+</html>

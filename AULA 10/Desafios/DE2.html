@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classificação de Notas</title>
+</head>
+<body>
+    NOTA: <input type="number" id="nota" min="1" max="10" value="5">
+    <button onclick="notaa()">Nota</button>
+    <div id="resultado"></div>
+
+    <script>
+        function notaa () {
+            let nota = parseInt(document.getElementById("nota").value);
+            let classificação;
+            switch (nota) {
+                case 1:
+                case 2:
+                    classificação = "Classificação F"
+                    break;
+                case 3:
+                case 4:
+                    classificação = "Classificação D"
+                    break;
+                case 5:
+                case 6:
+                    classificação = "Classificação C"
+                    break;
+                case 7:
+                case 8:
+                    classificação = "Classificação B"
+                    break;
+                case 9:
+                case 10:
+                    classificação = "Classificação A"
+                    break;
+                default:
+                    classificação = "Invalido"
+            }
+            document.getElementById("resultado").innerHTML = `Sua classificação foi: ${classificação}`
+        }
+    </script>
+</body>
+</html>

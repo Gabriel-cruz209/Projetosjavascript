@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Biblioteca Leitura Feliz</h1>
+        <label for="tipoUsuario">Selecione seu tipo de usuário:</label>
+        <select id="tipoUsuario">
+            <option value="estudante">Estudante</option>
+            <option value="professor">Professor</option>
+            <option value="visitante">Visitante</option>
+        </select>
+
+        <label for="quantidadeLivros">Quantos livros deseja pegar emprestado?</label>
+        <input type="number" id="quantidadeLivros" min="1" max="5">
+
+        <button onclick="verificarEmprestimo()">Verificar Empréstimo</button>
+
+        <div class="resultado" id="resultado"></div>
+    </div>
+
+    <script>
+        function verificarEmprestimo() {
+            const tipoUsuario = document.getElementById('tipoUsuario').value;
+            const quantidadeLivros = parseInt(document.getElementById('quantidadeLivros').value);
+            let mensagem = '';
+
+            if (tipoUsuario === 'estudante') {
+                if (quantidadeLivros <= 3) {
+                    mensagem = `Empréstimo permitido! Você pode pegar até 3 livros.`;
+                } else {
+                    mensagem = `Empréstimo não permitido! Estudantes podem pegar até 3 livros.`;
+                }
+            } else if (tipoUsuario === 'professor') {
+                if (quantidadeLivros <= 5) {
+                    mensagem = `Empréstimo permitido! Você pode pegar até 5 livros.`;
+                } else {
+                    mensagem = `Empréstimo não permitido! Professores podem pegar até 5 livros.`;
+                }
+            } else if (tipoUsuario === 'visitante') {
+                if (quantidadeLivros === 1) {
+                    mensagem = `Empréstimo permitido! Visitantes podem pegar apenas 1 livro.`;
+                } else {
+                    mensagem = `Empréstimo não permitido! Visitantes podem pegar apenas 1 livro.`;
+                }
+            }
+
+            document.getElementById('resultado').textContent = mensagem;
+        }
+    </script>
+</body>
+</html>

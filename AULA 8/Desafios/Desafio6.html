@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Acesso Sem Parar - Shopping</h1>
+
+    <label for="placa">Digite a placa do veículo:</label>
+    <input type="text" id="placa" placeholder="Ex: ABC1234">
+    <button onclick="verificarAcesso()">Verificar Acesso</button>
+
+    <div id="resultado" class="resultado"></div>
+
+    <script>
+        function verificarAcesso() {
+            const placa = document.getElementById('placa').value.toUpperCase();
+            const inicioPlaca = placa.substring(0, 3);
+
+            let resultado = '';
+            if (inicioPlaca === 'ABC') {
+                resultado = 'Acesso Liberado! Você está isento de cobrança.';
+            } else {
+                resultado = 'Cobrança de R$1,00 pela entrada.';
+            }
+
+            document.getElementById('resultado').innerHTML = resultado;
+        }
+    </script>
+
+</body>
+</html>

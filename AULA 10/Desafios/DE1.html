@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Moedas</title>
+</head>
+<body>
+    Converter Valor: <input type="number" id="converter"><br>
+    1 = Euro:<br> 2 = Dolar: <input type="text" id="conver">
+    <button onclick="converterValor()">Conversor</button>
+    <div id="resultadoValor"></div>
+
+    <script>
+        function converterValor() {
+            let reais = parseInt(document.getElementById("converter").value);
+            let de = document.getElementById("conver").value;
+            let converter;
+            let fixo;
+            switch (de){
+                case "dolar" :
+                converter = reais / 6;
+                fixo = 6;
+                break;
+                case "euro" :
+                converter = reais / 6;
+                fixo = 6;
+                break;
+            default:
+                converter = "Invalido" 
+                fixo = "Invalido"
+            }
+            document.getElementById("resultadoValor").innerHTML = `O resultado da conversão é: ${converter.toFixed(2)} e a moeda é ${fixo}`
+        }
+    </script>
+
+</body>
+</html>

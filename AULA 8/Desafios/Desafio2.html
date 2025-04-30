@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estoque</title>
+</head>
+<body>
+    <h1>Estoque</h1>
+    <button onclick="calcularquantidade()">Calcular quantidade</button>
+    <p id="result"></p>
+</div>
+    <script>
+        function calcularquantidade( ){
+            let valor = Number(window.prompt("Digite o Valor"))
+            let res2 = document.getElementById('result')
+            if(valor <= 30) {
+                 res2.innerHTML +=  `<p> O Estoque está baixo</p>`
+            }
+            else if (valor >= 70){
+               res2.innerHTML +=  `<p> O Estoque está bom</p>`
+            }
+        }
+       
+    </script>
+</body>
+</html>

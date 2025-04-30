@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Mecânica</h1>
+    <h2>Carros:Onix, Opala, Audi<br></h2>
+    Digite o modelo do carro: <input type="text" id="car" ><br>
+    <h2>Serviços:Troca de Oleo, Limpeza.<br></h2>
+    DIgite o serviço: <input type="text" id="serviço"><br>
+    <button onclick="Inf()">Consultar</button>
+    <div id="resultado"></div>
+    <script>
+       function Inf () {
+        let carro = document.getElementById('car').value.toLowerCase();
+        let serviço = document.getElementById('serviço').value.toLowerCase();
+        let inf;
+        let car;
+        let pr;
+        let com;
+        let ano;
+        let ser;
+        switch (carro) {
+            case "onix":
+                car = "Onix"
+                pr = 40000
+                com = "Alcool"
+                ano = 2010
+                if (serviço == "troca de oleo"){
+                    ser = 30
+                } else if (serviço == "limpeza"){
+                    ser = 20
+                }
+                break;
+            case "opala":
+                car = "Opala"
+                pr = 50000
+                com = "Alcool"
+                ano = 2012
+                if (serviço == "troca de oleo"){
+                    ser = 30
+                } else if (serviço == "limpeza"){
+                    ser = 20
+                }
+                break;
+            case "audi":
+                car = "Audi"
+                pr = 80000
+                com = "Alcool"
+                ano = 2016
+                if (serviço == "troca de oleo"){
+                    ser = 30
+                } else if (serviço == "limpeza"){
+                    ser = 20
+                }
+                break;
+            default: 
+            alert ('Carro não existente')
+        }
+        document.getElementById('resultado').innerHTML= `Carro: ${car}. Preço: ${pr}. Combustivel: ${com}. Ano de Fabricação: ${ano} \n O serviço de ${serviço} custou ${ser}`
+       }
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de area</title>
+</head>
+<body>
+    Figura: <input type="text" id="figura" ><br>
+    Dimensões<br> 
+    Altura:<input type="number" id="altura"><br>
+    Base: <input type="number" id="largura"><br>
+    Raio: <input type="number" id="raio">
+    <button onclick="calcularArea()">Calcular Area</button>
+    <div id="resultado"></div>
+
+    <script>
+        function calcularArea () {
+            let figura = document.getElementById("figura").value;
+            let alt = parseFloat(document.getElementById("altura").value);
+            let lar = parseFloat(document.getElementById("largura").value);
+            let rai = parseFloat(document.getElementById("raio").value);
+            let area;
+            switch (figura) {
+                case "quadrado":
+                    area = lar**2;
+                    break;
+                    case "triângulo":
+                    area = (alt * lar) / 2;
+                    break;
+                    case "circulo":
+                    area = 3.14 * (rai**2);
+                    break;
+                default:
+                    area = "Invalido"
+            }
+            document.getElementById("resultado").innerHTML = `A area da figura escolhida é: ${area}`
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario</title>
+</head>
+<body>
+    <h1>Meses</h1>
+    <button onclick="meses()">Meses do Ano</button>
+    <p id="mese"></p>
+
+    <script>
+        function meses () {
+            let res1 = document.getElementById('mese')
+            res1.innerHTML =  `<p>Janeiro <br> Fevereiro  <br> Março  <br>Abril  <br>Maio  <br>Junho  <br>Julho  <br>Agosto  <br>Setembro  <br>Outubro  <br>Novenbro  <br>Dezembro</p>`
+        }
+    </script>
+</body>
+</html>
