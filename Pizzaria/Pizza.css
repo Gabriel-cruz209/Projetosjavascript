@@ -1,0 +1,132 @@
+/* Estilo geral */
+body {
+    font-family: 'Ubuntu', sans-serif;
+    background-image: url('https://cdn.pixabay.com/photo/2017/12/09/08/18/pizza-3007395_1280.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+}
+
+/* Sobreposição para legibilidade */
+#container {
+    background-color: rgba(0, 0, 0, 0.75); /* Fundo escuro transparente */
+    max-width: 1000px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+/* Cabeçalho */
+h1 {
+    text-align: center;
+    color: #ff4d4d;
+    font-size: 3em;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px #000;
+}
+
+/* Menu */
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+
+.menu button {
+    background-color: #e60000;
+    color: #fff;
+    border: none;
+    padding: 15px 25px;
+    font-size: 1em;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 10px;
+    transition: background 0.3s;
+    box-shadow: 2px 2px 5px #000;
+}
+
+.menu button:hover {
+    background-color: #b30000;
+}
+
+button i {
+    margin-right: 8px;
+}
+
+/* Formulários */
+.form-group {
+    margin: 10px 0;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ffb3b3;
+    border-radius: 8px;
+    box-sizing: border-box;
+    background-color: #fff0f0;
+    color: #000;
+}
+
+/* Botões padrão */
+button {
+    background-color: #cc0000;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    margin-top: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #990000;
+}
+
+/* Títulos das seções */
+h2, h3 {
+    color: #ff9999;
+    margin-top: 30px;
+    text-shadow: 1px 1px #000;
+}
+
+/* Tabelas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ffcccc;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #ff6666;
+    color: #fff;
+}
+
+td {
+    background-color: #ffe6e6;
+    color: #000;
+}
+
+/* Lista de vendas */
+ul#lista-vendas {
+    list-style-type: disc;
+    margin-left: 20px;
+    color: #ffb3b3;
+}
+
+/* Ocultar seções */
+.hidden {
+    display: none;
+}
+
