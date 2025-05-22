@@ -64,9 +64,9 @@ function adicionarPizza (){
         document.getElementById("ingrediente").value = "";
         document.getElementById("preco").value = "";
         atualizarLista();
-        alert("Pizza adicionada com sucesso!");
+        document.getElementById('text').innerHTML = `Pizza adicionada com Sucesso!!`
     } else {
-        alert("Por favor, preencha todos os campos.");
+        document.getElementById('text').innerHTML = `Preencha todos os campos por favor!!`   
     }
 }
 
@@ -88,7 +88,7 @@ function buscarPizzaAlterar () {
         document.getElementById("novo-ingrediente").value = pizzaParaAlterar.ingrediente;
         document.getElementById("novo-preco").value = pizzaParaAlterar.preço
     } else{
-        alert("Pizza não encontrada")
+        document.getElementById('textt').innerHTML = `Pizza não encontrada.` 
     }
 }
 
@@ -105,10 +105,10 @@ function alterarPizza () {
             pizzaParaAlterar.preço = novoPreço;
 
             atualizarLista();
-            alert("Pizza alterada com sucesso!");
+            document.getElementById('text').innerHTML = `Pizza alterada com sucesso.` ;
             document.getElementById("form-alterar").classList.add("hidden");
         } else {
-            alert("Por favor,Preencha todos os campos")
+            document.getElementById('textt').innerHTML = `Preencha todos os campos,por favor.` 
         }
     }
 }
@@ -150,7 +150,10 @@ function registrarVenda() {
         document.getElementById('venda-preco').value = '';
         document.getElementById('venda-cliente').value = '';
     } else {
-        alert("Por favor,preencha todos os campos!");
+        setTimeout(() => {
+         document.getElementById('texttt').innerHTML = `Peencha todos os campos por favor.`;
+    }, 2000);
+       
     }
 }
 
@@ -160,14 +163,14 @@ function gerarRelatorioVendas() {
     tabelaRelatorio.innerHTML = ''; //Limpar Tabela
 
     if(vendas.length === 0 ) {
-        alert ('Nenhuma venda registrada!');
+        document.getElementById('text4').innerHTML = `Nenhuma venda registrada.` 
         return;
     }
 
     let totalVendas = 0; //Variavel para armazenar o total de vendas
 
     if(totalVendas.length === 0 ){
-        alert('Valor de Venda não registado!')
+        document.getElementById('text4').innerHTML = `Valor de venda não registrada.` 
         return;
     }
 

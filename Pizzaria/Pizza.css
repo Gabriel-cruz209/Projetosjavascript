@@ -10,6 +10,17 @@ body {
     color: #fff;
 }
 
+
+
+#mensagem {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #ff4d4d; /* vermelho alerta */
+}
+
+.mensagem-hidden {
+    display: none;
+}
 /* Sobreposição para legibilidade */
 #container {
     background-color: rgba(0, 0, 0, 0.75); /* Fundo escuro transparente */
