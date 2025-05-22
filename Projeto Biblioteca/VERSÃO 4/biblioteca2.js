@@ -1,3 +1,36 @@
+function exibirMensagem(texto, tipo) {
+  const mensagem = document.getElementById('mensagem')
+  mensagem.textContent = texto;
+  //adicionar a classe de estilo (sucesso e erro)
+  mensagem.className = `mensagem ${tipo}`;
+  mensagem.classList.remove("hidden");
+
+  //Remove a mensagem apos 3 segundos
+  setTimeout(() => {
+    mensagem.classList.add("hidden");
+  }, 3000);
+}
+
+function validarLogin () {
+  const usuario = document.getElementById("usuario").value;
+  const senha = document.getElementById("senha").value;
+
+  //usuario e senha fixos para a validação
+  //(você pode substituir por algo mais avançado)
+  const usuarioCorreto = "admin";
+  const senhaCorreta = "1234";
+
+  if (usuario === usuarioCorreto && senha === senhaCorreta) {
+    exibirMensagem("Login realizado com sucesso!", "sucesso");
+    setTimeout(() => {
+      //Redirecionar para a pagina principal
+      window.location.href = "biblioteca.html";
+    }, 1000); // Aguardar 1 segundo antes de redirecionar
+  } else {
+    exibirMensagem("Usuário ou senha incorreto.", "erro")
+  }
+}
+
 let biblioteca = [];
 let livroParaAlterar = null;
 

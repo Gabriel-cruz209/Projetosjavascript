@@ -1,3 +1,43 @@
+
+
+function cadastrar () {
+    const usuarioCorreto = document.getElementById('nome-usuario').value;
+    const senhaCorreto = document.getElementById('senha').value;
+    const confirmarsenha = document.getElementById('confirmar-senha').value;
+
+
+
+}
+
+function exibirMensagem (texto, tipo) {
+    const mensagem = document.getElementById('mensagem')
+    mensagem.textContent = texto;
+
+    mensagem.className = `mensagem ${tipo}`;
+    mensagem.classList.remove("hidden");
+
+    setTimeout(() => {
+        mensagem.classList.add("hidden");
+    }, 3000);
+}
+
+function validarLogin () {
+    const usuario = document.getElementById('usuario').value;
+    const senha = document.getElementById('senha').value;
+
+    const usuarioCorreto = "admin";
+    const senhaCorreta = "1234"
+
+    if (usuario === usuarioCorreto && senha === senhaCorreta) {
+        exibirMensagem("Login realizado com sucesso!", "sucesso");
+        setTimeout(() => {
+            window.location.href = "PizzaAdm.html"
+        }, 1000);
+    } else {
+        exibirMensagem("Usuário ou senha incorreto.","erro")
+    }
+}
+
 let pizzaria = []
 let pizzaAlterar = null;
 
@@ -7,6 +47,7 @@ function mostrarSecao(secao) {
     document.getElementById('alterar').classList.add('hidden');
     document.getElementById('venda').classList.add('hidden');
     document.getElementById('relatorio-vendas').classList.add('hidden');
+    document.getElementById('menu').classList.add('hidden');
 
     document.getElementById(secao).classList.remove('hidden');
     
@@ -154,4 +195,10 @@ function gerarRelatorioVendas() {
 
     //Exibir a area de relatorio
     document.getElementById('relatorio-vendas').classList.remove('hidden')
+}
+
+function mostrarLogin () {
+    setTimeout(() => {
+        window.location.href = "PizzaLogin.html"
+    }, 1000);
 }

@@ -33,6 +33,26 @@
                 <i class="fas fa-shopping-cart icon"></i>
                 Vendas de Pizzas
             </button>
+            <button onclick="mostrarSecao('menu')">
+                <i class="fa-solid fa-bars"></i>
+                Menu
+            </button>
+            <button onclick="mostrarSecao('carrinho')">
+                <i class="fas fa-shopping-cart icon"></i>
+                Carrinho
+            </button>
+            <button onclick="mostrarSecao('entrega')">
+                <i class="fa-solid fa-motorcycle"></i>
+                Entrega
+            </button>
+            <button onclick="mostrarLogin('loginn')">
+                <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                Login
+            </button>
+            <button onclick="mostrarSecao('cadastro')">
+                <i class="fa-solid fa-user"></i>
+                Cadastro
+            </button>
             <button onclick="gerarRelatorioVendas()">
                 <i class="fa-solid fa-flag"></i>
                 Relatório Vendas
@@ -134,6 +154,27 @@
             </table>
         </div>
     </div>
+
+    <div id="menu" class="hidden">
+        <h3>Menu</h3>
+        <div class="form">
+            <label for="pizzad">Pizza de Calabresa R$70,00</label>
+            <button onclick="AddPizza('calabresa')">
+                Adicionar
+            </button>
+            <label for="pizzad">Pizza de Frango R$60,00</label>
+            <button onclick="AddPizza('frango')">
+                Adicionar
+            </button>
+            <label for="pizzad">Pizza de Mussarela R$50,00</label>
+            <button onclick="AddPizza('mussarela')">
+                Adicionar
+            </button>
+            
+        </div>
+    </div>
+
+    <div id="cadastro" class="hidden"></div>
 
     <script src="Pizza.js"></script>
 </body>
