@@ -1,143 +1,342 @@
-/* Estilo geral */
+/* Estilos Gerais */
+:root {
+  --primary-color: #e74c3c;
+  --secondary-color: #f39c12;
+  --dark-color: #2c3e50;
+  --light-color: #ecf0f1;
+  --success-color: #2ecc71;
+  --warning-color: #e67e22;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    font-family: 'Ubuntu', sans-serif;
-    background-image: url('https://cdn.pixabay.com/photo/2017/12/09/08/18/pizza-3007395_1280.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    margin: 0;
-    padding: 0;
-    color: #fff;
+  font-family: 'Ubuntu', sans-serif;
+  background-color: #f5f5f5;
+  background-image: url('https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  color: #333;
+  line-height: 1.6;
 }
 
-
-
-#mensagem {
-    margin-top: 15px;
-    font-size: 14px;
-    color: #ff4d4d; /* vermelho alerta */
-}
-
-.mensagem-hidden {
-    display: none;
-}
-/* Sobreposição para legibilidade */
 #container {
-    background-color: rgba(0, 0, 0, 0.75); /* Fundo escuro transparente */
-    max-width: 1000px;
-    margin: auto;
-    padding: 30px;
-    border-radius: 12px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
-/* Cabeçalho */
+h1, h2, h3 {
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
 h1 {
-    text-align: center;
-    color: #ff4d4d;
-    font-size: 3em;
-    margin-bottom: 30px;
-    text-shadow: 2px 2px #000;
+  font-size: 2.5rem;
+  margin-top: 20px;
+  position: relative;
+  padding-bottom: 10px;
 }
 
-/* Menu */
+h1::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: var(--secondary-color);
+}
+
+/* Menu Principal */
 .menu {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin-bottom: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
 }
 
 .menu button {
-    background-color: #e60000;
-    color: #fff;
-    border: none;
-    padding: 15px 25px;
-    font-size: 1em;
-    cursor: pointer;
-    margin: 10px;
-    border-radius: 10px;
-    transition: background 0.3s;
-    box-shadow: 2px 2px 5px #000;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .menu button:hover {
-    background-color: #b30000;
+  background-color: var(--dark-color);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
 
-button i {
-    margin-right: 8px;
+.menu button i {
+  font-size: 1.2rem;
+}
+
+/* Seções */
+.hidden {
+  display: none;
 }
 
 /* Formulários */
 .form-group {
-    margin: 10px 0;
+  margin-bottom: 20px;
 }
 
-input[type="text"],
-input[type="number"] {
-    width: 100%;
-    padding: 10px;
-    border: 2px solid #ffb3b3;
-    border-radius: 8px;
-    box-sizing: border-box;
-    background-color: #fff0f0;
-    color: #000;
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: var(--dark-color);
 }
 
-/* Botões padrão */
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border 0.3s;
+}
+
+.form-group input:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 5px rgba(231, 76, 60, 0.3);
+}
+
 button {
-    background-color: #cc0000;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    margin-top: 10px;
-    border-radius: 8px;
-    cursor: pointer;
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  display: block;
+  margin: 20px auto;
+  font-weight: bold;
 }
 
 button:hover {
-    background-color: #990000;
-}
-
-/* Títulos das seções */
-h2, h3 {
-    color: #ff9999;
-    margin-top: 30px;
-    text-shadow: 1px 1px #000;
+  background-color: var(--warning-color);
+  transform: translateY(-2px);
 }
 
 /* Tabelas */
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
 
 th, td {
-    border: 1px solid #ffcccc;
-    padding: 10px;
-    text-align: left;
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
 }
 
 th {
-    background-color: #ff6666;
-    color: #fff;
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: bold;
 }
 
-td {
-    background-color: #ffe6e6;
-    color: #000;
+tr:nth-child(even) {
+  background-color: #f9f9f9;
 }
 
-/* Lista de vendas */
-ul#lista-vendas {
-    list-style-type: disc;
-    margin-left: 20px;
-    color: #ffb3b3;
+tr:hover {
+  background-color: #f1f1f1;
 }
 
-/* Ocultar seções */
+/* Lista de Vendas */
+#lista-vendas {
+  list-style: none;
+  margin-top: 20px;
+  background-color: white;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+#lista-vendas li {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.3s;
+}
+
+#lista-vendas li:last-child {
+  border-bottom: none;
+}
+
+#lista-vendas li:hover {
+  background-color: #f5f5f5;
+}
+
+/* Mensagens de Texto */
+.texto {
+  text-align: center;
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#text {
+  color: var(--success-color);
+  font-weight: bold;
+}
+
+#textt, #texttt, #text4 {
+  color: var(--warning-color);
+  font-weight: bold;
+}
+
+/* Cardápio */
+#menu {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+#menu .form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#menu label {
+  font-weight: bold;
+  color: var(--dark-color);
+}
+
+#menu button {
+  margin: 5px 0;
+  background-color: var(--primary-color);
+}
+
+#menu button:hover {
+  background-color: var(--dark-color);
+}
+
+/* Efeitos de Transição */
 .hidden {
-    display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
+.hidden[style*="display: block"] {
+  opacity: 1;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .menu {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .menu button {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  #container {
+    padding: 15px;
+    margin: 15px;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+/* Animação para as pizzas */
+@keyframes pizzaSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.fa-pizza-slice {
+  animation: pizzaSpin 300s linear infinite;
+}
+
+.fa-magnifying-glass{
+    animation: pizzaSpin 300s linear infinite;
+}
+
+.fa-edit{
+    animation: pizzaSpin 300s linear infinite;
+}
+
+.fa-shopping-cart{
+    animation: pizzaSpin 300s linear infinite;
+}
+
+.fa-arrow-right-to-bracket{
+    animation: pizzaSpin 300s linear infinite;
+}
+
+.fa-flag{
+    animation: pizzaSpin 0.1s linear infinite;
+}
+
+/* Efeito de flutuação para os botões */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0px); }
+}
+
+.menu button {
+  animation: float 3s ease-in-out infinite;
+}
+
+.menu button:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.menu button:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.menu button:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+.menu button:nth-child(5) {
+  animation-delay: 0.8s;
+}
+
+.menu button:nth-child(6) {
+  animation-delay: 1s;
+}

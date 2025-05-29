@@ -33,25 +33,9 @@
                 <i class="fas fa-shopping-cart icon"></i>
                 Vendas de Pizzas
             </button>
-            <button onclick="mostrarSecao('menu')">
-                <i class="fa-solid fa-bars"></i>
-                Menu
-            </button>
-            <button onclick="mostrarSecao('carrinho')">
-                <i class="fas fa-shopping-cart icon"></i>
-                Carrinho
-            </button>
-            <button onclick="mostrarSecao('entrega')">
-                <i class="fa-solid fa-motorcycle"></i>
-                Entrega
-            </button>
             <button onclick="mostrarLogin('loginn')">
                 <i class="fa-solid fa-arrow-right-to-bracket"></i>
                 Login
-            </button>
-            <button onclick="mostrarSecao('cadastro')">
-                <i class="fa-solid fa-user"></i>
-                Cadastro
             </button>
             <button onclick="gerarRelatorioVendas()">
                 <i class="fa-solid fa-flag"></i>
@@ -76,7 +60,7 @@
                 <input type="number" id="preco" placeholder="Digite o preço da pizza">
             </div>
             <button onclick="adicionarPizza()">Adicionar Pizza</button>
-            <P id="text"></P>
+            <P id="text" class="texto"></P>
         </div>
 
 
@@ -115,7 +99,7 @@
                     <input type="number" id="novo-preco" placeholder="Digite o novo preco">
                 </div>
                 <button onclick="alterarPizza()">Salvar alterações</button>
-                <p id="textt"></p>
+                <p id="textt" class="texto"></p>
             </div>
         </div>
 
@@ -136,7 +120,7 @@
                 <input type="text" id="venda-cliente" placeholder="Digite o nome do cliente">
             </div>
             <button onclick="registrarVenda()">Registrar Venda</button>
-            <p id="texttt"></p>
+            <p id="texttt" class="texto"></p>
             <h3>Pizzas Vendidas</h3>
             <ul id="lista-vendas"></ul>
         </div>
@@ -156,7 +140,7 @@
                 <tbody id="tabela-relatorio-vendas"></tbody>
             </table>
         </div>
-        <p id="text4"></p>
+        <p id="text4" class="texto"></p>
     </div>
 
     <div id="menu" class="hidden">

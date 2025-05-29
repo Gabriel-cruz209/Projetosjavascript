@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="stylesheet" href="PizzaUsuario.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzaria</title>
+</head>
+<body>
+    <div class="menu">
+        <button onclick="mostrarSecao('menu')">
+            <i class="fa-solid fa-bars"></i>
+            Menu
+        </button>
+        <button onclick="mostrarSecao('carrinho')">
+            <i class="fas fa-shopping-cart icon"></i>
+            Carrinho
+        </button>
+        <button onclick="mostrarSecao('entrega')">
+            <i class="fa-solid fa-motorcycle"></i>
+            Entrega
+        </button>
+        <button onclick="mostrarLogin('loginn')">
+            <i class="fa-solid fa-arrow-right-to-bracket"></i>
+            Login
+        </button>
+    </div>
+
+    <h1>Menu da Pizzaria</h1>
+    <div id="menu" class="hidden">
+        <div class="menu">
+            <h3>Pizza de Calabresa</h3>
+            <p>Calabresa, cebola, mussarela</p>
+            <h4>R$120,00</h4>
+            <button onclick="adicionarAoCarrinho('Pizza de Calabresa')">Adicionar ao Carrinho</button>
+        </div>
+
+        <div class="menu">
+            <h3>Pizza Marguerita</h3>
+            <p>Tomate, manjericão, mussarela</p>
+            <h4>R$130,00</h4>
+            <button onclick="adicionarAoCarrinho('Pizza Marguerita')">Adicionar ao Carrinho</button>
+        </div>
+
+        <div class="menu">
+            <h3>Pizza Quatro Queijos</h3>
+            <p>Mussarela, provolone, gorgonzola, parmesão</p>
+            <h4>R$140,00</h4>
+            <button onclick="adicionarAoCarrinho('Pizza Quatro Queijos')">Adicionar ao Carrinho</button>
+        </div>
+    </div>
+
+    <div id="carrinho" class="hidden">
+        <h2>Carrinho</h2>
+        <ul id="lista-carrinho">
+            <!-- Pizzas adicionadas aparecerão aqui -->
+        </ul>
+    </div>
+
+    <script src="Pizza.js"></script>
+</body>
+</html>

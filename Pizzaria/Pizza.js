@@ -1,13 +1,4 @@
-
-
-function cadastrar () {
-    const usuarioCorreto = document.getElementById('nome-usuario').value;
-    const senhaCorreto = document.getElementById('senha').value;
-    const confirmarsenha = document.getElementById('confirmar-senha').value;
-
-
-
-}
+let usuario = []
 
 function exibirMensagem (texto, tipo) {
     const mensagem = document.getElementById('mensagem')
@@ -21,19 +12,48 @@ function exibirMensagem (texto, tipo) {
     }, 3000);
 }
 
+function cadastrar () {
+    const usuario = document.getElementById('nome-usuario').value;
+    const senhaCorreta = document.getElementById('senha').value;
+    const confirmeSenha = document.getElementById('confirmar-senha').value;
+
+        if ( usuario && (senhaCorreta === confirmeSenha)) {
+        usuario.push({usuario, senhaCorreta, confirmeSenha})
+        document.getElementById('nome-usuario').value = "";
+        document.getElementById('senha').value = "";
+        document.getElementById('confirmar-senha').value = "";
+        exibirMensagem("Cadastrado com sucesso!")
+        atualizarUsuario()
+        setTimeout(() => {
+            window.location.href = "PizzaLogin.html"
+        },1000);
+        exibirMensagem("Cadastrado com sucesso!")
+        }else {
+            exibirMensagem("Preencha todos os campos corretamentes")
+        } 
+    } 
+
 function validarLogin () {
     const usuario = document.getElementById('usuario').value;
     const senha = document.getElementById('senha').value;
 
+    const usuarioCorreto2 = "biel";
+    const senhaCorreta2 = "123";
     const usuarioCorreto = "admin";
-    const senhaCorreta = "1234"
+    const senhaCorreta = "1234";
 
     if (usuario === usuarioCorreto && senha === senhaCorreta) {
         exibirMensagem("Login realizado com sucesso!", "sucesso");
         setTimeout(() => {
             window.location.href = "PizzaAdm.html"
         }, 1000);
-    } else {
+    } else if (usuario === usuarioCorreto2 && senha === senhaCorreta2){
+        exibirMensagem("Login realizado com sucesso!", "sucesso");
+        setTimeout(() => {
+            window.location.href = "PizzaUsuario.html"
+        }, 1000);
+    }
+    else {
         exibirMensagem("Usuário ou senha incorreto.","erro")
     }
 }
@@ -47,7 +67,6 @@ function mostrarSecao(secao) {
     document.getElementById('alterar').classList.add('hidden');
     document.getElementById('venda').classList.add('hidden');
     document.getElementById('relatorio-vendas').classList.add('hidden');
-    document.getElementById('menu').classList.add('hidden');
 
     document.getElementById(secao).classList.remove('hidden');
     
@@ -205,3 +224,23 @@ function mostrarLogin () {
         window.location.href = "PizzaLogin.html"
     }, 1000);
 }
+
+function adicionarAoCarrinho(pizza) {
+            const lista = document.getElementById('lista-carrinho');
+            const item = document.createElement('li');
+            item.className = 'item-carrinho';
+            
+            const texto = document.createElement('span');
+            texto.textContent = pizza;
+            
+            const botaoRemover = document.createElement('button');
+            botaoRemover.textContent = 'Remover';
+            botaoRemover.className = 'remover-btn';
+            botaoRemover.onclick = function() {
+                lista.removeChild(item);
+            };
+
+            item.appendChild(texto);
+            item.appendChild(botaoRemover);
+            lista.appendChild(item);
+        }
