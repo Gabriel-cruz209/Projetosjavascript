@@ -7,8 +7,9 @@
     <title>Pizzaria</title>
 </head>
 <body>
+    <h1 class="titulo">Pizzaria Champions</h1>
     <div class="menu">
-        <button onclick="mostrarSecao('menu')">
+        <button onclick="mostrarSecao('menuu')">
             <i class="fa-solid fa-bars"></i>
             Menu
         </button>
@@ -26,37 +27,46 @@
         </button>
     </div>
 
-    <h1>Menu da Pizzaria</h1>
-    <div id="menu" class="hidden">
-        <div class="menu">
+    
+    <div id="menuu" class="hidden">
+        <h1 class="titulo">Menu da Pizzaria</h1>
+        <div class="form-group">
             <h3>Pizza de Calabresa</h3>
             <p>Calabresa, cebola, mussarela</p>
             <h4>R$120,00</h4>
-            <button onclick="adicionarAoCarrinho('Pizza de Calabresa')">Adicionar ao Carrinho</button>
+            <button onclick="addPizza({nome: 'Pizza de Calabresa', preco: 120.00 })">Adicionar ao Carrinho</button>
         </div>
 
-        <div class="menu">
-            <h3>Pizza Marguerita</h3>
-            <p>Tomate, manjericão, mussarela</p>
+        <div class="form-group">
+            <h3>Pizza de Frango</h3>
+            <p>Tomate, frango, mussarela</p>
             <h4>R$130,00</h4>
-            <button onclick="adicionarAoCarrinho('Pizza Marguerita')">Adicionar ao Carrinho</button>
+            <button onclick="addPizza({nome: 'Pizza de Frango', preco: 130.00 })">Adicionar ao Carrinho</button>
         </div>
 
-        <div class="menu">
+        <div class="form-group">
             <h3>Pizza Quatro Queijos</h3>
             <p>Mussarela, provolone, gorgonzola, parmesão</p>
             <h4>R$140,00</h4>
-            <button onclick="adicionarAoCarrinho('Pizza Quatro Queijos')">Adicionar ao Carrinho</button>
+            <button onclick="addPizza({nome: 'Pizza Quatro Queijos', preco: 140.00 })">Adicionar ao Carrinho</button>
         </div>
     </div>
 
     <div id="carrinho" class="hidden">
-        <h2>Carrinho</h2>
+        <h1>Carrinho</h1>
         <ul id="lista-carrinho">
             <!-- Pizzas adicionadas aparecerão aqui -->
         </ul>
+        <button onclick="FinalizarPedido()">Finalizar Pedido</button>
+        <p id="text"></p>
     </div>
 
-    <script src="Pizza.js"></script>
+    <div id="entrega" class="hidden">
+        <h1>Entrega</h1>
+        <button onclick="entrega()">Confirmar Entrega</button>
+        <p id="texto"></p>
+    </div>
+
+    <script src="PizzaUsuario.js"></script>
 </body>
 </html>

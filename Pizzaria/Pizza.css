@@ -72,6 +72,7 @@ h1::after {
   border-bottom: 1px solid #eee;
 }
 
+/* Estilos dos botões do menu */
 .menu button {
   background-color: var(--primary-color);
   color: white;
@@ -85,17 +86,49 @@ h1::after {
   align-items: center;
   gap: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.menu button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.15);
+  transition: left 0.5s ease;
+}
+
+.menu button:hover::after {
+  left: 0;
 }
 
 .menu button:hover {
   background-color: var(--dark-color);
-  transform: translateY(-3px);
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+  animation: pulse 1s infinite;
 }
 
 .menu button i {
   font-size: 1.2rem;
 }
+
+/* Efeito pulse */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(231, 76, 60, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(231, 76, 60, 0);
+  }
+}
+
 
 /* Seções */
 .hidden {
@@ -286,36 +319,9 @@ tr:hover {
   100% { transform: rotate(360deg); }
 }
 
-.fa-pizza-slice {
-  animation: pizzaSpin 300s linear infinite;
-}
-
-.fa-magnifying-glass{
-    animation: pizzaSpin 300s linear infinite;
-}
-
-.fa-edit{
-    animation: pizzaSpin 300s linear infinite;
-}
-
-.fa-shopping-cart{
-    animation: pizzaSpin 300s linear infinite;
-}
-
-.fa-arrow-right-to-bracket{
-    animation: pizzaSpin 300s linear infinite;
-}
-
-.fa-flag{
-    animation: pizzaSpin 0.1s linear infinite;
-}
 
 /* Efeito de flutuação para os botões */
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-5px); }
-  100% { transform: translateY(0px); }
-}
+
 
 .menu button {
   animation: float 3s ease-in-out infinite;

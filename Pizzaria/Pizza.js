@@ -23,16 +23,16 @@ function cadastrar () {
         document.getElementById('senha').value = "";
         document.getElementById('confirmar-senha').value = "";
         exibirMensagem("Cadastrado com sucesso!")
-        atualizarUsuario()
+        
         setTimeout(() => {
             window.location.href = "PizzaLogin.html"
         },1000);
         exibirMensagem("Cadastrado com sucesso!")
         }else {
             exibirMensagem("Preencha todos os campos corretamentes")
-        } 
-    } 
+        } atualizarUsuario()
 
+    } 
 function validarLogin () {
     const usuario = document.getElementById('usuario').value;
     const senha = document.getElementById('senha').value;
@@ -94,6 +94,11 @@ function buscarPizza () {
     const busca = document.getElementById("busca").value.toLowerCase();
     const resultado = pizzaria.filter((pizza)=> pizza.nome.toLowerCase().includes(busca));
     atualizarLista(resultado);
+    if (resultado) {
+        document.getElementById("texto1").innerHTML ="Pizza Encontrada"
+    } else{
+        document.getElementById('texto1').innerHTML = `Pizza não encontrada.` 
+    }
 }
 
 //Alterar Pizza -- 80 á 98
@@ -123,13 +128,15 @@ function alterarPizza () {
             pizzaParaAlterar.ingrediente = novoIngrediente;
             pizzaParaAlterar.preço = novoPreço;
 
-            atualizarLista();
-            document.getElementById('text').innerHTML = `Pizza alterada com sucesso.` ;
-            document.getElementById("form-alterar").classList.add("hidden");
+            
+            document.getElementById('textt').innerHTML = `Pizza alterada com sucesso.` ;
+            
         } else {
             document.getElementById('textt').innerHTML = `Preencha todos os campos,por favor.` 
+            document.getElementById("form-alterar").classList.add("hidden");
         }
     }
+    atualizarLista();
 }
 
 function atualizarLista(lista = pizzaria){
@@ -141,7 +148,7 @@ function atualizarLista(lista = pizzaria){
         linha.innerHTML = `
         <td>${pizza.nome}</td>
         <td>${pizza.ingrediente}</td>
-        <td>${pizza.preço}</td>
+        <td>R$${Number(pizza.preço).toFixed(2)}</td>
         `;
         tabela.appendChild(linha);
     });
@@ -182,7 +189,7 @@ function gerarRelatorioVendas() {
     tabelaRelatorio.innerHTML = ''; //Limpar Tabela
 
     if(vendas.length === 0 ) {
-        document.getElementById('text4').innerHTML = `Nenhuma venda registrada.` 
+         
         return;
     }
 
@@ -225,22 +232,3 @@ function mostrarLogin () {
     }, 1000);
 }
 
-function adicionarAoCarrinho(pizza) {
-            const lista = document.getElementById('lista-carrinho');
-            const item = document.createElement('li');
-            item.className = 'item-carrinho';
-            
-            const texto = document.createElement('span');
-            texto.textContent = pizza;
-            
-            const botaoRemover = document.createElement('button');
-            botaoRemover.textContent = 'Remover';
-            botaoRemover.className = 'remover-btn';
-            botaoRemover.onclick = function() {
-                lista.removeChild(item);
-            };
-
-            item.appendChild(texto);
-            item.appendChild(botaoRemover);
-            lista.appendChild(item);
-        }
