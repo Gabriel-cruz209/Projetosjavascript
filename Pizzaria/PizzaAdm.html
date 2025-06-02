@@ -48,7 +48,7 @@
         <div id="cadastro" class="hidden">
             <h2>Cadastrar Pizzas</h2>
             <div class="form-group">
-                <label for="nome">Nome:</label>
+                <label for="nome">Nome da Pizza:</label>
                 <input type="text" id="nome" placeholder="Digite o nome da pizza">
             </div>
             <div class="form-group">
@@ -85,10 +85,11 @@
     <!-- Seção de Alteração -->
         <div id="alterar" class="hidden">
             <h2>Alterar Pizza</h2>
+            <p id="textt1"></p>
             <input type="text" id="buscar-alterar" placeholder="Buscar por nome" oninput="buscarPizzaAlterar()">
             <div id="form-alterar" class="hidden">
                 <div class="form-group">
-                    <label for="novo-nome">Novo Nome:</label>
+                    <label for="novo-nome">Novo Nome da Pizza:</label>
                     <input type="text" id="novo-nome" placeholder="Digite o novo nome">
                 </div>
                 <div class="form-group">
@@ -108,8 +109,11 @@
         <!--Vendas-->
         <div id="venda" class="hidden">
             <h2>Venda de Pizzas</h2>
+            <p id="texto0"></p>
+            <input type="text" id="buscar-venda" placeholder="Buscar por nome" oninput="buscarPizzaVenda()">
+        <div id="form-venda" class="hidden">
             <div class="form-group">
-                <label for="venda-nome">Nome da Pizza:</label>
+                <label for="venda-nome">Pizza:</label>
                 <input type="text" id="venda-nome" placeholder="Digite o nome da pizza">
             </div>
             <div class="form-group">
@@ -122,6 +126,7 @@
             </div>
             <button onclick="registrarVenda()">Registrar Venda</button>
             <p id="texttt" class="texto"></p>
+        </div>
             <h3>Pizzas Vendidas</h3>
             <ul id="lista-vendas"></ul>
         </div>
@@ -143,27 +148,6 @@
         </div>
         <p id="text4" class="texto"></p>
     </div>
-
-    <div id="menu" class="hidden">
-        <h3>Menu</h3>
-        <div class="form">
-            <label for="pizzad">Pizza de Calabresa R$70,00</label>
-            <button onclick="AddPizza('calabresa')">
-                Adicionar
-            </button>
-            <label for="pizzad">Pizza de Frango R$60,00</label>
-            <button onclick="AddPizza('frango')">
-                Adicionar
-            </button>
-            <label for="pizzad">Pizza de Mussarela R$50,00</label>
-            <button onclick="AddPizza('mussarela')">
-                Adicionar
-            </button>
-            
-        </div>
-    </div>
-
-    <div id="cadastro" class="hidden"></div>
 
     <script src="Pizza.js"></script>
 </body>
