@@ -85,6 +85,6 @@ function FinalizarPedido() {
 }
 
 function entrega() {
-    document.getElementById('texto').innerHTML = '<strong>Entregua Confirmada</strong>'
+    document.getElementById('texto').innerHTML = '<strong>Entrega Confirmada</strong>'
 }
 
