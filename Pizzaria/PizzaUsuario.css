@@ -291,3 +291,74 @@ h1::after {
 #entrega button:hover {
     background-color: #0069d9;
 }
+/* Mensagem de notificação */
+#mensagem {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid var(--secondary-color);
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: var(--dark-color);
+  font-weight: bold;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Total do carrinho */
+#total-carrinho {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 15px;
+  color: var(--primary-color);
+}
+
+/* Texto de finalização do pedido */
+#text {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: var(--success-color);
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Texto de status de entrega */
+#texto {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: var(--warning-color);
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Botão de Remover no carrinho */
+#lista-carrinho button {
+  background-color: var(--primary-color);
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#lista-carrinho button:hover {
+  background-color: var(--dark-color);
+  transform: scale(1.1);
+}
+
+/* Animação fadeIn para mensagens */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+

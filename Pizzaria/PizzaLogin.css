@@ -281,3 +281,174 @@ footer a:hover {
     font-size: 1rem;
   }
 }
+
+/* Estilo para o container de login */
+#login {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  max-width: 400px;
+  margin: 50px auto;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+/* Títulos no login */
+#login h1 {
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+#login h2 {
+  color: var(--dark-color);
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+/* Inputs do login */
+#login input[type="text"],
+#login input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  transition: border-color 0.3s ease;
+}
+
+#login input[type="text"]:focus,
+#login input[type="password"]:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+/* Botão de login */
+#login button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 100%;
+  margin-top: 15px;
+}
+
+#login button:hover {
+  background-color: var(--dark-color);
+  transform: scale(1.05);
+}
+
+/* Mensagem de erro/sucesso */
+#mensagem {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Link para cadastro dentro do login */
+.link-cadastro {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.link-cadastro a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.link-cadastro a:hover {
+  text-decoration: underline;
+}
+
+/* Estilo para o container de cadastro */
+#cadastro {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  max-width: 400px;
+  margin: 50px auto;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+/* Títulos no cadastro */
+#cadastro h1 {
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+/* Inputs do cadastro */
+#cadastro input[type="text"],
+#cadastro input[type="password"],
+#cadastro input[type="email"] {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  transition: border-color 0.3s ease;
+}
+
+#cadastro input[type="text"]:focus,
+#cadastro input[type="password"]:focus,
+#cadastro input[type="email"]:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+/* Botão de cadastro */
+#cadastro button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 100%;
+  margin-top: 15px;
+}
+
+#cadastro button:hover {
+  background-color: var(--dark-color);
+  transform: scale(1.05);
+}
+
+/* Mensagem de erro/sucesso */
+#cadastro #mensagem {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Link para login */
+.link-login {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9rem;
+}
+
+.link-login a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.link-login a:hover {
+  text-decoration: underline;
+}

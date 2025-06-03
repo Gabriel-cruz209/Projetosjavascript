@@ -12,50 +12,68 @@ function exibirMensagem (texto, tipo) {
     }, 3000);
 }
 
-function cadastrar () {
-    const usuario = document.getElementById('nome-usuario').value;
-    const senhaCorreta = document.getElementById('senha').value;
-    const confirmeSenha = document.getElementById('confirmar-senha').value;
+function cadastrar() {
+  const novoUsuario = document.getElementById("nome-usuario").value;
+  const novaSenha = document.getElementById("senha").value;
+  const novoEmail = document.getElementById("email").value;
 
-        if ( usuario && (senhaCorreta === confirmeSenha)) {
-        usuario.push({usuario, senhaCorreta, confirmeSenha})
-        document.getElementById('nome-usuario').value = "";
-        document.getElementById('senha').value = "";
-        document.getElementById('confirmar-senha').value = "";
-        exibirMensagem("Cadastrado com sucesso!")
-        
-        setTimeout(() => {
-            window.location.href = "PizzaLogin.html"
-        },1000);
-        exibirMensagem("Cadastrado com sucesso!")
-        }else {
-            exibirMensagem("Preencha todos os campos corretamentes")
-        } atualizarUsuario()
+  let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+  if (usuarios.some(u => u.usuario === novoUsuario)) {
+    exibirMensagem("Usuário já existe!", "erro");
+    return;
+  }
+  
+  if (!novoUsuario || !novaSenha || !novoEmail) {
+    exibirMensagem("Preencha todos os campos!", "erro");
+    return;
+  }
 
-    } 
-function validarLogin () {
-    const usuario = document.getElementById('usuario').value;
-    const senha = document.getElementById('senha').value;
+  usuarios.push({ usuario: novoUsuario, senha: novaSenha, email: novoEmail });
+  localStorage.setItem("usuarios", JSON.stringify(usuarios));
+  exibirMensagem("Usuário cadastrado com sucesso!", "sucesso");
+  setTimeout(() => {
+    window.location.href = "PizzaLogin.html"
+  }, 2000);
 
-    const usuarioCorreto2 = "biel";
-    const senhaCorreta2 = "123";
-    const usuarioCorreto = "admin";
-    const senhaCorreta = "1234";
+  
+  // Limpa os campos após cadastro
+  document.getElementById("usuario").value = "";
+  document.getElementById("senha").value = "";
+  document.getElementById("email").value = "";
+  
+  return;
+}
 
-    if (usuario === usuarioCorreto && senha === senhaCorreta) {
-        exibirMensagem("Login realizado com sucesso!", "sucesso");
-        setTimeout(() => {
-            window.location.href = "PizzaAdm.html"
-        }, 1000);
-    } else if (usuario === usuarioCorreto2 && senha === senhaCorreta2){
-        exibirMensagem("Login realizado com sucesso!", "sucesso");
-        setTimeout(() => {
-            window.location.href = "PizzaUsuario.html"
-        }, 1000);
-    }
-    else {
-        exibirMensagem("Usuário ou senha incorreto.","erro")
-    }
+function buscarUsuario(usuario, senha) {
+  let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+  return usuarios.find(u => u.usuario === usuario && u.senha === senha);
+}
+
+function buscarUsuarioPorNome(usuario) {
+  let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+  return usuarios.find(u => u.usuario === usuario);
+}
+
+function validarLogin() {
+  const usuario = document.getElementById("usuario").value;
+  const senha = document.getElementById("senha").value;
+  const senhaAdm = "1234"
+  const usuarioAdm = "admin"
+
+  if (buscarUsuario(usuario, senha)) {
+    exibirMensagem("Login realizado com sucesso!", "sucesso");
+    setTimeout(() => {
+      window.location.href = "PizzaUsuario.html";
+    }, 1000);
+  } else if (usuario === usuarioAdm && senha === senhaAdm){
+    exibirMensagem("Login realizado com sucesso Administrador!", "sucesso");
+    setTimeout(() => {
+      window.location.href = "PizzaAdm.html";
+    }, 1000);
+  }
+  else {
+    exibirMensagem("Usuário ou senha incorretos.", "erro");
+  }
 }
 
 let pizzaria = []
@@ -196,6 +214,7 @@ function registrarVenda() {
         document.getElementById('venda-nome').value = '';
         document.getElementById('venda-preco').value = '';
         document.getElementById('venda-cliente').value = '';
+        document.getElementById('texttt').innerHTML = `Venda adicionada com Sucesso!`
     } else if (nome === null  && preço === null && cliente === null) {
         document.getElementById('texttt').innerHTML = `Peencha todos os campos por favor.`
     } 
@@ -210,7 +229,7 @@ function gerarRelatorioVendas() {
     tabelaRelatorio.innerHTML = ''; //Limpar Tabela
 
     if(vendas.length === 0 ) {
-         
+        document.getElementById('text4').innerHTML = `Nenhuma venda resgistrada no momento.`
         return;
     }
 

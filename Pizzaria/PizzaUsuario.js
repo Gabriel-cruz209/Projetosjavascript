@@ -1,5 +1,21 @@
 let carrinho = [];
 
+function exibirMensagem(texto) {
+    let msg = document.getElementById('mensagem');
+    if (!msg) {
+        msg = document.createElement('div');
+        msg.id = 'mensagem';
+        msg.style.marginTop = '10px';
+        msg.style.padding = '10px';
+        msg.style.border = '1px solid #ccc';
+        msg.style.borderRadius = '5px';
+        msg.style.backgroundColor = '#f0f0f0';
+        document.body.appendChild(msg);
+    }
+    msg.textContent = texto;
+}
+
+
 function mostrarSecao(secao) {
     document.getElementById('menuu').classList.add('hidden');
     document.getElementById('carrinho').classList.add('hidden');
@@ -18,7 +34,9 @@ function mostrarLogin () {
 function addPizza(pizza) {
     carrinho.push(pizza);
     atualizarCarrinho();
+    exibirMensagem(`${carrinho.length} item(ns) no carrinho.`);
 }
+
 
 function atualizarCarrinho() {
     const listaCarrinho = document.getElementById('lista-carrinho');
@@ -36,6 +54,8 @@ function atualizarCarrinho() {
         li.appendChild(btnRemover);
         listaCarrinho.appendChild(li);
     });
+    const total = carrinho.reduce((soma, item) => soma + item.preco, 0);
+    document.getElementById('total-carrinho').textContent = `Total: R$ ${total.toFixed(2)}`;
 }
 
 function removerPizza(index) {
