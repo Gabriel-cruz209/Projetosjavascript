@@ -12,66 +12,79 @@ function exibirMensagem (texto, tipo) {
     }, 3000);
 }
 
+// Função para cadastrar um novo usuário
 function cadastrar() {
-  const novoUsuario = document.getElementById("nome-usuario").value;
-  const novaSenha = document.getElementById("senha").value;
-  const novoEmail = document.getElementById("email").value;
+  // Pega os valores digitados
+  const nome = document.getElementById("nome-usuario").value;
+  const senha = document.getElementById("senha").value;
+  const email = document.getElementById("email").value;
 
+  // Pega lista de usuários ou cria vazia
   let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-  if (usuarios.some(u => u.usuario === novoUsuario)) {
+
+  // Se já existe usuário com o mesmo nome
+  if (usuarios.some(u => u.usuario === nome)) {
     exibirMensagem("Usuário já existe!", "erro");
-    return;
+    return; // Para a função
   }
-  
-  if (!novoUsuario || !novaSenha || !novoEmail) {
+
+  // Se faltar algum campo
+  if (!nome || !senha || !email) {
     exibirMensagem("Preencha todos os campos!", "erro");
     return;
   }
 
-  usuarios.push({ usuario: novoUsuario, senha: novaSenha, email: novoEmail });
-  localStorage.setItem("usuarios", JSON.stringify(usuarios));
-  exibirMensagem("Usuário cadastrado com sucesso!", "sucesso");
-  setTimeout(() => {
-    window.location.href = "PizzaLogin.html"
-  }, 2000);
+  // Adiciona novo usuário
+  usuarios.push({ usuario: nome, senha: senha, email: email });
 
-  
-  // Limpa os campos após cadastro
+  // Salva lista atualizada
+  localStorage.setItem("usuarios", JSON.stringify(usuarios));
+
+  // Mensagem de sucesso
+  exibirMensagem("Usuário cadastrado com sucesso!", "sucesso");
+
+  // Depois de 2 segundos, vai para login
+  setTimeout(() => window.location.href = "PizzaLogin.html", 2000);
+
+  // Limpa os campos
   document.getElementById("usuario").value = "";
   document.getElementById("senha").value = "";
   document.getElementById("email").value = "";
-  
-  return;
 }
 
-function buscarUsuario(usuario, senha) {
+// Função para buscar usuário por nome e senha
+function buscarUsuario(nome, senha) {
   let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-  return usuarios.find(u => u.usuario === usuario && u.senha === senha);
+  return usuarios.find(u => u.usuario === nome && u.senha === senha);
 }
 
-function buscarUsuarioPorNome(usuario) {
+// Função para buscar usuário só pelo nome
+function buscarUsuarioPorNome(nome) {
   let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-  return usuarios.find(u => u.usuario === usuario);
+  return usuarios.find(u => u.usuario === nome);
 }
 
+// Função para validar o login
 function validarLogin() {
-  const usuario = document.getElementById("usuario").value;
+  const nome = document.getElementById("usuario").value;
   const senha = document.getElementById("senha").value;
-  const senhaAdm = "1234"
-  const usuarioAdm = "admin"
 
-  if (buscarUsuario(usuario, senha)) {
+  // Dados do admin
+  const adminNome = "admin";
+  const adminSenha = "1234";
+
+  // Se for usuário normal
+  if (buscarUsuario(nome, senha)) {
     exibirMensagem("Login realizado com sucesso!", "sucesso");
-    setTimeout(() => {
-      window.location.href = "PizzaUsuario.html";
-    }, 1000);
-  } else if (usuario === usuarioAdm && senha === senhaAdm){
+    setTimeout(() => window.location.href = "PizzaUsuario.html", 1000);
+
+  // Se for admin
+  } else if (nome === adminNome && senha === adminSenha) {
     exibirMensagem("Login realizado com sucesso Administrador!", "sucesso");
-    setTimeout(() => {
-      window.location.href = "PizzaAdm.html";
-    }, 1000);
-  }
-  else {
+    setTimeout(() => window.location.href = "PizzaAdm.html", 1000);
+
+  // Se for errado
+  } else {
     exibirMensagem("Usuário ou senha incorretos.", "erro");
   }
 }
@@ -112,10 +125,13 @@ function buscarPizza () {
     const busca = document.getElementById("busca").value.toLowerCase();
     const resultado = pizzaria.filter((pizza)=> pizza.nome.toLowerCase().includes(busca));
     atualizarLista(resultado);
+    if(resultado.length === 0 ) {
+        document.getElementById('texto1').innerHTML = `Pizza não encontrada`
+        return;
+    }
     if (resultado) {
         document.getElementById("texto1").innerHTML ="Pizza Encontrada"
-    } else if (resultado === null){
-        document.getElementById('texto1').innerHTML = `Pizza não encontrada.`
+        return;
     }
     else {
         document.getElementById('texto1').innerHTML = `Pizza não.`
@@ -126,14 +142,17 @@ function buscarPizza () {
 function buscarPizzaAlterar () {
     const busca = document.getElementById("buscar-alterar").value.toLowerCase();
     pizzaParaAlterar = pizzaria.find((pizza) => pizza.nome.toLowerCase().includes(busca));
-
+    
     if (pizzaParaAlterar) {
         document.getElementById("form-alterar").classList.remove("hidden");
         document.getElementById("novo-nome").value = pizzaParaAlterar.nome;
         document.getElementById("novo-ingrediente").value = pizzaParaAlterar.ingrediente;
         document.getElementById("novo-preco").value = pizzaParaAlterar.preço
-    } else{
-        document.getElementById('textt').innerHTML = `Pizza não encontrada.` 
+        document.getElementById('textt1').innerHTML = `Pizza encontrada.`
+    }
+    else{
+        document.getElementById('textt1').innerHTML = `Pizza não encontrada.` 
+        return;
     }
 }
 
@@ -152,7 +171,7 @@ function alterarPizza () {
             document.getElementById('textt').innerHTML = `Pizza alterada com sucesso.` ;
             
         } else if (novoNome === null && novoIngrediente === null && novoPreço === null){
-            document.getElementById('textt').innerHTML = `Preencha todos os campos,por favor.` 
+            document.getElementById('textt').innerHTML = (`Preencha todos os campos,por favor.`,"sucesso") 
             document.getElementById("form-alterar").classList.add("hidden");
         }
         else{
@@ -185,8 +204,10 @@ function buscarPizzaVenda() {
         document.getElementById("form-venda").classList.remove("hidden");
         document.getElementById("venda-nome").value = pizzaVenda.nome;
         document.getElementById("venda-preco").value = pizzaVenda.preço;
+        document.getElementById('texto0').innerHTML = `Pizza encontrada.`
     } else{
         document.getElementById('texto0').innerHTML = `Pizza não encontrada.` 
+        return;
     }
 }
 
@@ -204,7 +225,7 @@ function registrarVenda() {
         pizzaVenda.preco = Vendapreço
         const listaVendas = document.getElementById('lista-vendas');
         const item = document.createElement('li');//criou o espaço onde a gente pode armazenar o elemento
-        item.textContent = `Nome: ${Vendanome}, Preço: R$${Vendapreço}, Comprador: ${Vendacliente}`;
+        item.textContent = `Nome: ${Vendanome}  Preço: R$${Vendapreço}  Comprador: ${Vendacliente}`;
         listaVendas.appendChild(item);//tras as imformações que o elemento 
 
         //Adicionar venda ao array de vendas
@@ -272,3 +293,7 @@ function mostrarLogin () {
     }, 1000);
 }
 
+function mostrarRelatorioVendas() {
+    gerarRelatorioVendas();  
+    mostrarSecao('relatorio-vendas');  // Mostra a seção do relatório
+}
